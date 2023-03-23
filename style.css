@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #f6f3fa;
+  width: 100vw;
+  overflow-x: hidden;
+  color: #191b2a;
+}
+body header {
+  height: 600px;
+  position: relative;
+}
+body header .nav {
+  padding: 50px 50px;
+  font-weight: 700;
+  font-size: 36px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+body header .bgTopIcon {
+  position: absolute;
+  top: 0;
+  transform: translateY(-40%);
+  opacity: 0.05;
+  height: 280px;
+  right: 0;
+}
+body header .bgBottomIcon {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-20%);
+  opacity: 0.1;
+  height: 280px;
+  left: 0;
+}
+body header .headerContent {
+  padding: 20px;
+  display: flex;
+  height: calc(100vh - 60px - 220px);
+}
+body header .headerContent .left {
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-left: 100px;
+}
+body header .headerContent .left h1 {
+  margin-bottom: 20px;
+  font-size: 45px;
+}
+body header .headerContent .left h1 span {
+  color: #a17ac9;
+}
+body header .headerContent .left .description {
+  color: gray;
+  font-size: 20px;
+}
+body header .headerContent .left .description span {
+  font-weight: 700;
+}
+body header .headerContent .right {
+  width: 40%;
+  display: flex;
+  align-items: flex-end;
+}
+body header .headerContent .right .headerImgContainer img {
+  height: 350px;
+}
+body .photoGallerySection {
+  height: 800px;
+  padding: 50px;
+}
+body .photoGallerySection .photoGalleryContent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: rgba(127, 17, 224, 0.2);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+body .photoGallerySection .photoGalleryContent .title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+body .photoGallerySection .photoGalleryContent .subtitle {
+  font-weight: 500;
+  position: relative;
+}
+body .photoGallerySection .photoGalleryContent .subtitle::after {
+  content: "";
+  background-color: #a17ac9;
+  width: 50%;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 250%);
+  left: 50%;
+  border-radius: 30px;
+}
+body .scrachCardSection {
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 100px;
+  position: relative;
+}
+body .scrachCardSection .bgBottomIcon {
+  position: absolute;
+  bottom: 50px;
+  transform: translateX(-50%);
+  opacity: 0.1;
+  height: 280px;
+  left: 0;
+}
+body .scrachCardSection .title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+body .scrachCardSection .subtitle {
+  font-weight: 500;
+  position: relative;
+}
+body .scrachCardSection .subtitle::after {
+  content: "";
+  background-color: #a17ac9;
+  width: 50%;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 250%);
+  left: 50%;
+  border-radius: 30px;
+}
+body .scrachCardSection .scratchCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 80px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle {
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  gap: 10px;
+  width: 350px;
+  height: 200px;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardTitle {
+  font-size: 18px;
+  position: relative;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardTitle::after {
+  content: "";
+  background-color: #a17ac9;
+  width: 20%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0, 250%);
+  left: 0;
+  border-radius: 30px;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardContent {
+  font-size: 14px;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .left button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 2px solid #191b2a;
+  color: #191b2a;
+  background-color: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .right {
+  display: flex;
+  align-items: center;
+}
+body .scrachCardSection .scratchCards .scratchCardSingle .right img {
+  height: 100px;
+}
+body footer {
+  background-color: #191b2a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  gap: 20px;
+}
+body footer .logo {
+  font-size: 40px;
+  font-weight: 600;
+}
+body footer .address {
+  margin-bottom: 10px;
+  font-weight: 200;
+}
+body footer .socials {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+body footer .hrHalf {
+  height: 1px;
+  background-color: gray;
+  width: 250px;
+}
+body footer .hrFull {
+  height: 1px;
+  background-color: gray;
+  width: 1000px;
+  margin-top: 20px;
+}
+body footer .menu ul {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+body footer .menu ul li a {
+  text-decoration: none;
+  color: white;
+}
+body footer .copyright {
+  display: flex;
+  width: 1000px;
+  justify-content: space-between;
+  font-size: 14px;
+}
+body footer .copyright .right a {
+  color: white;
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */

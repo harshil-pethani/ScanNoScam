@@ -32,8 +32,6 @@ function createScrachable(id) {
         return Math.atan2(point2.x - point1.x, point2.y - point1.y);
     }
 
-    // Only test every `stride` pixel. `stride`x faster,
-    // but might lead to inaccuracy
     function getFilledInPixels(stride) {
         if (!stride || stride < 1) { stride = 1; }
 
@@ -109,6 +107,138 @@ function createScrachable(id) {
 
 };
 
-for (let i = 0; i < 6; i++) {
-    createScrachable(i);
+let scratchCards = [
+    {
+        'id': '1',
+        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
+        'title': 'Gift Card_1'
+    },
+    {
+        'id': '2',
+        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
+        'title': 'Gift Card_2'
+    },
+    {
+        'id': '3',
+        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
+        'title': 'Gift Card_3'
+    },
+    {
+        'id': '4',
+        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
+        'title': 'Gift Card_4'
+    },
+    {
+        'id': '5',
+        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
+        'title': 'Gift Card_5'
+    },
+    {
+        'id': '6',
+        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
+        'title': 'Gift Card_6'
+    },
+];
+
+for (let i = 0; i < scratchCards.length; i++) {
+    let singleScratchCard = document.createElement('div');
+    singleScratchCard.classList.add('scratchCardSingle');
+    singleScratchCard.setAttribute('onclick', `openPopup(${JSON.stringify(scratchCards[i])})`)
+    singleScratchCard.innerHTML = `
+        <canvas class="canvas" id=""></canvas>
+        <div class="left">
+            <h1 class="scrachCardTitle">
+                ${scratchCards[i].title}
+            </h1>
+            <p class="scrachCardContent">
+                ${scratchCards[i].content}
+            </p>
+            <button>
+                Claim
+            </button>
+        </div>
+        <div class="right">
+            <img src="assets/scrachCard.png" alt="">
+        </div>
+    `
+    document.getElementById('scratchCards').appendChild(singleScratchCard);
+}
+
+
+
+
+var card1 = document.querySelector('#card1');
+card1.addEventListener('mouseenter', function () {
+    card1.classList.toggle('is-flipped');
+});
+
+var card2 = document.querySelector('#card2');
+card2.addEventListener('mouseenter', function () {
+    card2.classList.toggle('is-flipped');
+});
+
+var card3 = document.querySelector('#card3');
+card3.addEventListener('mouseenter', function () {
+    card3.classList.toggle('is-flipped');
+});
+
+var card4 = document.querySelector('#card4');
+card4.addEventListener('mouseenter', function () {
+    card4.classList.toggle('is-flipped');
+});
+
+var card5 = document.querySelector('#card5');
+card5.addEventListener('mouseenter', function () {
+    card5.classList.toggle('is-flipped');
+});
+
+var card6 = document.querySelector('#card6');
+card6.addEventListener('mouseenter', function () {
+    card6.classList.toggle('is-flipped');
+});
+
+var card7 = document.querySelector('#card7');
+card7.addEventListener('mouseenter', function () {
+    card7.classList.toggle('is-flipped');
+});
+
+var card8 = document.querySelector('#card8');
+card8.addEventListener('mouseenter', function () {
+    card8.classList.toggle('is-flipped');
+});
+
+var card9 = document.querySelector('#card9');
+card9.addEventListener('mouseenter', function () {
+    card9.classList.toggle('is-flipped');
+});
+
+function openPopup(scrachCard) {
+    document.getElementById("popupLayer").classList.add("active");
+    document.getElementById('js-container0').innerHTML = `
+        <canvas class="canvas" id="js-canvas0"></canvas>
+        <div class="left">
+            <h1 class="scrachCardTitle">
+                ${scrachCard.title}
+            </h1>
+            <p class="scrachCardContent">
+                ${scrachCard.content}    
+            </p>
+            <button>
+            Claim
+            </button>
+        </div>
+        <div class="right">
+            <img src="assets/scrachCard.png" alt="">
+        </div>
+    `;
+
+    setTimeout(() => {
+        createScrachable(0)
+    }, 0.01);
+}
+
+
+function closePopup() {
+    document.getElementById('js-container0').innerHTML = "";
+    document.getElementById("popupLayer").classList.remove("active");
 }

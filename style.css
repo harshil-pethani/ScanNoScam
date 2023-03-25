@@ -13,6 +13,9 @@ body {
   color: #191b2a;
   position: relative;
 }
+body .photoGallerySectionMobile {
+  display: none;
+}
 body .popupLayer {
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
@@ -668,30 +671,37 @@ body footer .copyright .right a {
     height: auto;
   }
   body .photoGallerySection {
-    height: 1200px;
-    padding: 50px;
     display: none;
   }
-  body .photoGallerySection .photoGalleryContent {
-    height: 100%;
-    width: 100%;
+  body .photoGallerySectionMobile {
     display: flex;
-    background-color: rgba(127, 17, 224, 0.2);
-    border-radius: 10px;
+    width: 100%;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
+    overflow: hidden;
+    padding: 0;
+    /* Hide scrollbar for IE, Edge and Firefox */
   }
-  body .photoGallerySection .photoGalleryContent .title {
-    font-size: 40px;
+  body .photoGallerySectionMobile .example::-webkit-scrollbar {
+    display: none;
+  }
+  body .photoGallerySectionMobile .example {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+  body .photoGallerySectionMobile .title {
+    font-size: 26px;
     font-weight: 600;
     margin-bottom: 5px;
+    margin-top: 15px;
   }
-  body .photoGallerySection .photoGalleryContent .subtitle {
+  body .photoGallerySectionMobile .subtitle {
     font-weight: 500;
     position: relative;
   }
-  body .photoGallerySection .photoGalleryContent .subtitle::after {
+  body .photoGallerySectionMobile .subtitle::after {
     content: "";
     background-color: #a17ac9;
     width: 50%;
@@ -702,106 +712,19 @@ body footer .copyright .right a {
     left: 50%;
     border-radius: 30px;
   }
-  body .photoGallerySection .photoGalleryContent .photoContainer {
+  body .photoGallerySectionMobile .photoContainer {
+    margin-top: 20px;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    width: 90%;
+    overflow: auto;
+    gap: 20px;
+  }
+  body .photoGallerySectionMobile .photoContainer .card {
+    height: 200px;
+    width: 200px;
+  }
+  body .photoGallerySectionMobile .photoContainer .card img {
     height: 100%;
-    margin-top: 80px;
-    position: relative;
-    overflow: hidden;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene {
-    height: auto;
-    perspective: 600px;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene .card {
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    position: relative;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene .card.is-flipped {
-    transform: rotateY(180deg);
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene .card__face {
-    position: absolute;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene .card__face--back {
-    transform: rotateY(180deg);
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card1 {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    width: 20%;
-    height: 300px;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card2 {
-    position: absolute;
-    top: 130px;
-    left: 310px;
-    width: 20%;
-    height: 300px;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card3 {
-    position: absolute;
-    top: 430px;
-    left: 310px;
-    width: 20%;
-    height: 300px;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card4 {
-    position: absolute;
-    top: 180px;
-    left: 600px;
-    width: 20%;
-    height: 300px;
-    overflow: hidden;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card5 {
-    position: absolute;
-    top: 380px;
-    left: 600px;
-    width: 20%;
-    height: 300px;
-    overflow: hidden;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card6 {
-    position: absolute;
-    top: 0;
-    left: 860px;
-    width: 20%;
-    height: 300px;
-    overflow: hidden;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card7 {
-    position: absolute;
-    top: 300px;
-    left: 860px;
-    width: 20%;
-    height: 300px;
-    overflow: hidden;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card8 {
-    position: absolute;
-    top: 500px;
-    left: 860px;
-    width: 20%;
-    height: 300px;
-    overflow: hidden;
-  }
-  body .photoGallerySection .photoGalleryContent .photoContainer .scene--card9 {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 1140px;
-    width: 20%;
-    height: 300px;
-    overflow: hidden;
   }
   body .scrachCardSection {
     height: -moz-fit-content;

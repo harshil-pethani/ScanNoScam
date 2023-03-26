@@ -70,6 +70,7 @@ body .popupLayer .popupBox .scratchCardSingle {
   width: 750px;
   height: 400px;
   padding: 30px;
+  text-align: center;
   overflow: hidden;
   position: relative;
   -webkit-user-select: none;
@@ -121,6 +122,50 @@ body .popupLayer .popupBox .scratchCardSingle .left button {
   width: fit-content;
   padding: 15px 30px;
   border-radius: 5px;
+  border: 2px solid #191b2a;
+  color: #191b2a;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+body .popupLayer .popupBox .scratchCardSingle .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+body .popupLayer .popupBox .scratchCardSingle .center .scrachCardTitle {
+  font-size: 24px;
+  position: relative;
+}
+
+body .popupLayer .popupBox .scratchCardSingle .center .scrachCardTitle::after {
+  content: "";
+  background-color: #a17ac9;
+  width: 20%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0, 250%);
+  left: 40%;
+  border-radius: 30px;
+}
+
+body .popupLayer .popupBox .scratchCardSingle .center .scrachCardContent {
+  font-size: 20px;
+}
+
+body .popupLayer .popupBox .scratchCardSingle .center button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px 30px;
+  border-radius: 5px;
+  margin: 0 auto;
   border: 2px solid #191b2a;
   color: #191b2a;
   background-color: transparent;
@@ -186,7 +231,7 @@ body header {
 }
 
 body header .nav {
-  padding: 50px 50px;
+  margin: 20px 20px;
   font-weight: 700;
   font-size: 36px;
   height: 60px;
@@ -250,7 +295,7 @@ body header .headerContent .center {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  padding: 50px;
+  padding-top: 50px;
   text-align: center;
 }
 
@@ -677,6 +722,10 @@ body footer .menu ul li a {
   color: white;
 }
 
+body footer .menu p {
+  text-align: center;
+}
+
 body footer .copyright {
   display: flex;
   width: 1000px;
@@ -742,9 +791,10 @@ body footer .copyright .right a {
     background-color: white;
     display: flex;
     gap: 10px;
-    width: 90%;
+    width: 100%;
     height: 180px;
     padding: 10px;
+    text-align: center;
     overflow: hidden;
     position: relative;
     -webkit-user-select: none;
@@ -794,6 +844,49 @@ body footer .copyright .right a {
     width: -moz-fit-content;
     width: fit-content;
     padding: 5px 15px;
+    border-radius: 5px;
+    border: 2px solid #191b2a;
+    color: #191b2a;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  body .popupLayer .popupBox .scratchCardSingle .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 10px;
+  }
+
+  body .popupLayer .popupBox .scratchCardSingle .center .scrachCardTitle {
+    font-size: 18px;
+    position: relative;
+  }
+
+  body .popupLayer .popupBox .scratchCardSingle .center .scrachCardTitle::after {
+    content: "";
+    background-color: #a17ac9;
+    width: 20%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    transform: translate(0, 250%);
+    left: 40%;
+    border-radius: 30px;
+  }
+
+  body .popupLayer .popupBox .scratchCardSingle .center .scrachCardContent {
+    font-size: 14px;
+  }
+
+  body .popupLayer .popupBox .scratchCardSingle .center button {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 5px 15px;
+    margin: 0 auto;
     border-radius: 5px;
     border: 2px solid #191b2a;
     color: #191b2a;
@@ -858,7 +951,7 @@ body footer .copyright .right a {
   }
 
   body header .nav {
-    padding: 20px 20px;
+    margin: 20px 20px;
     font-weight: 700;
     font-size: 26px;
     height: 30px;
@@ -928,7 +1021,7 @@ body footer .copyright .right a {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 100px;
+    padding-top: 50px;
     text-align: center;
   }
 
@@ -997,6 +1090,7 @@ body footer .copyright .right a {
     font-weight: 600;
     margin-bottom: 5px;
     margin-top: 15px;
+    text-align: center;
   }
 
   body .photoGallerySectionMobile .subtitle {
@@ -1262,6 +1356,10 @@ body footer .copyright .right a {
   body footer .menu ul li a {
     text-decoration: none;
     color: white;
+  }
+
+  body footer .menu p {
+    text-align: center;
   }
 
   body footer .copyright {

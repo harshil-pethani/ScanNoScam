@@ -537,9 +537,6 @@ function openPopup(scrachCard) {
                         Claim
                     </button>
                 </div>
-                <div class="right">
-                    <img src="assets/scrachCard.png" alt="">
-                </div>
             `;
         setTimeout(() => {
             createScrachable(0, scrachCard.offer_code)

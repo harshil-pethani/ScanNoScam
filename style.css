@@ -67,7 +67,7 @@ body .popupLayer .popupBox .scratchCardSingle .canvas {
   left: -10px;
   width: 110%;
   height: 110%;
-  z-index: 10;
+  z-index: 6;
 }
 body .popupLayer .popupBox .scratchCardSingle .left {
   display: flex;

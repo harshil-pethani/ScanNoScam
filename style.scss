@@ -285,17 +285,19 @@ body {
         .scene {
           // height: fit-content;
           height: auto;
-          // border: 1px solid #CCC;
+          width: 300px;
+          // border: 1px solid red;
           // margin: 40px 0;
           perspective: 600px;
 
           .card {
-            // width: 100%;
-            // height: 100%;
+            width: 100%;
+            height: 100%;
             transition: transform 1s;
             transform-style: preserve-3d;
             cursor: pointer;
             position: relative;
+            overflow: hidden;
           }
 
           .card.is-flipped {
@@ -304,12 +306,16 @@ body {
 
           .card__face {
             position: absolute;
-            // width: 100%;
-            // height: 100%;
+            width: 100%;
+            height: 100%;
             // line-height: 260px;
             // color: white;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+          }
+
+          img {
+            width: 300px;
           }
 
           .card__face--front {

@@ -107,6 +107,43 @@ function createScrachable(id) {
 
 };
 
+const creatorApi = 'https://api.campaign.whisttler.com/api/creators/?format=json';
+
+let creatorsArray;
+
+let firstCardCreators, secondCardCretors, thirdCardCretors, fourthCardCretors, fifthCardCretors, sixthCardCretors, seventhCardCretors, eightthCardCretors, ninethCardCretors;
+
+async function getCreators(url) {
+    const res = await fetch(url);
+    let data = await res.json();
+
+    creatorsArray = data;
+
+    firstCardCreators = creatorsArray?.splice(0, 5);
+    let card1 = document.querySelector('#card1');
+    card1.innerHTML = `
+        <a href="${firstCardCreators[0].instagram_link}" target="_blank">
+            <img style="width: 300px" class="card__face card__face--front" src="${firstCardCreators[0].creator_img}" alt="">
+        </a>
+        <a href="${firstCardCreators[1].instagram_link}" target="_blank">
+            <img style="width: 300px" class="card__face card__face--front" src="${firstCardCreators[1].creator_img}" alt="">
+        </a>
+    `;
+
+    console.log(firstCardCreators)
+    secondCardCretors = creatorsArray?.splice(0, 5);
+    thirdCardCretors = creatorsArray?.splice(0, 5);
+    fourthCardCretors = creatorsArray?.splice(0, 5);
+    fifthCardCretors = creatorsArray?.splice(0, 5);
+    sixthCardCretors = creatorsArray?.splice(0, 4);
+    seventhCardCretors = creatorsArray?.splice(0, 4);
+    eightthCardCretors = creatorsArray?.splice(0, 4);
+    ninethCardCretors = creatorsArray?.splice(0, 4);
+}
+
+
+getCreators(creatorApi);
+
 let scratchCards = [
     {
         'id': '1',
@@ -164,13 +201,41 @@ for (let i = 0; i < scratchCards.length; i++) {
     document.getElementById('scratchCards').appendChild(singleScratchCard);
 }
 
+let firstCardIndex = 1;
+// let firstCardIndex2 = 2;
 
-
-
-var card1 = document.querySelector('#card1');
-card1.addEventListener('mouseenter', function () {
+setInterval(() => {
+    let card1 = document.querySelector('#card1');
     card1.classList.toggle('is-flipped');
-});
+
+    if (card1.classList.contains('is-flipped')) {
+        card1.lastElementChild.setAttribute('href', firstCardCreators[firstCardIndex].instagram_link);
+        card1.lastElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex].creator_img);
+
+        // card1.firstElementChild.setAttribute('href', firstCardCreators[firstCardIndex2].instagram_link);
+        // card1.firstElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex2].creator_img);
+
+    } else {
+        card1.firstElementChild.setAttribute('href', firstCardCreators[firstCardIndex].instagram_link);
+        card1.firstElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex].creator_img);
+
+        // card1.lastElementChild.setAttribute('href', firstCardCreators[firstCardIndex2].instagram_link);
+        // card1.lastElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex2].creator_img);
+    }
+
+
+    if (firstCardIndex < 4) {
+        firstCardIndex++;
+    } else {
+        firstCardIndex = 0;
+    }
+    // if (firstCardIndex2 < 4) {
+    //     firstCardIndex2++;
+    // } else {
+    //     firstCardIndex2 = 0;
+    // }
+}, 5000);
+
 
 var card2 = document.querySelector('#card2');
 card2.addEventListener('mouseenter', function () {

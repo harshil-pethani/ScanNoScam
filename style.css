@@ -63,10 +63,10 @@ body .popupLayer .popupBox .scratchCardSingle {
 }
 body .popupLayer .popupBox .scratchCardSingle .canvas {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -10px;
+  left: -10px;
+  width: 110%;
+  height: 110%;
   z-index: 10;
 }
 body .popupLayer .popupBox .scratchCardSingle .left {
@@ -224,21 +224,30 @@ body .photoGallerySection .photoGalleryContent .photoContainer {
 }
 body .photoGallerySection .photoGalleryContent .photoContainer .scene {
   height: auto;
+  width: 300px;
   perspective: 600px;
 }
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card {
+  width: 100%;
+  height: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 }
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card.is-flipped {
   transform: rotateY(180deg);
 }
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card__face {
   position: absolute;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+body .photoGallerySection .photoGalleryContent .photoContainer .scene img {
+  width: 300px;
 }
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card__face--back {
   transform: rotateY(180deg);
@@ -376,17 +385,12 @@ body .scrachCardSection .scratchCards .scratchCardSingle {
   user-select: none;
 }
 body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
-  background: url(assets/scratch.jpg);
+  background: url(assets/scratch.png);
   position: absolute;
   top: 0;
   left: 0;
   border-radius: 10px;
   cursor: pointer;
-}
-body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   z-index: 3;

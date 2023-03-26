@@ -79,6 +79,7 @@ function createScrachable(id, scratchCardCode) {
             canvas.parentNode.removeChild(canvas);
             // console.log("Scratched")
             localStorage.setItem("scratchCardCode", scratchCardCode);
+            getScratchCards()
         }
     }
 
@@ -115,7 +116,6 @@ function createScrachable(id, scratchCardCode) {
 };
 
 const creatorApi = 'https://api.campaign.whisttler.com/api/creators/?format=json';
-const scratchCardApi = 'https://api.campaign.whisttler.com/api/offers/?format=json';
 
 let creatorsArray;
 
@@ -230,8 +230,9 @@ async function getCreators(url) {
 }
 
 let scratchCards;
-async function getScratchCards(url) {
-    const res = await fetch(url);
+async function getScratchCards() {
+    const scratchCardApi = 'https://api.campaign.whisttler.com/api/offers/?format=json';
+    const res = await fetch(scratchCardApi);
     let data = await res.json();
 
     scratchCards = data;
@@ -240,30 +241,50 @@ async function getScratchCards(url) {
         let singleScratchCard = document.createElement('div');
         singleScratchCard.classList.add('scratchCardSingle');
         singleScratchCard.setAttribute('onclick', `openPopup(${JSON.stringify(scratchCards[i])})`)
-        singleScratchCard.innerHTML = `
-        <canvas class="canvas" id=""></canvas>
-        <div class="left">
-            <h1 class="scrachCardTitle">
-                ${scratchCards[i].offer_code}
-            </h1>
-            <p class="scrachCardContent">
-                ${scratchCards[i].offer_description}
-            </p>
-            <a href="${scratchCards[i].offer_form}" target="_blank">
-                Claim
-            </a>
-        </div>
-        <div class="right">
-            <img src="assets/scrachCard.png" alt="">
-        </div>
-    `
+        let previousScratchedCode = localStorage.getItem("scratchCardCode");
+        if (previousScratchedCode !== null && previousScratchedCode === scratchCards[i].offer_code) {
+            singleScratchCard.innerHTML = `
+                <div class="left">
+                    <h1 class="scrachCardTitle">
+                        ${scratchCards[i].offer_code}
+                    </h1>
+                    <p class="scrachCardContent">
+                        ${scratchCards[i].offer_description}    
+                    </p>
+                    <button onclick="openFormPopup('${scratchCards[i].offer_form}')">
+                        Claim
+                    </button>
+                </div>
+                <div class="right">
+                    <img src="assets/scrachCard.png" alt="">
+                </div>
+            `;
+        } else {
+            singleScratchCard.innerHTML = `
+            <canvas class="canvas" id=""></canvas>
+            <div class="left">
+                <h1 class="scrachCardTitle">
+                    ${scratchCards[i].offer_code}
+                </h1>
+                <p class="scrachCardContent">
+                    ${scratchCards[i].offer_description}
+                </p>
+                <a href="${scratchCards[i].offer_form}" target="_blank">
+                    Claim
+                </a>
+            </div>
+            <div class="right">
+                <img src="assets/scrachCard.png" alt="">
+            </div>`
+        }
+
         document.getElementById('scratchCards').appendChild(singleScratchCard);
     }
 
 }
 
 getCreators(creatorApi);
-getScratchCards(scratchCardApi);
+getScratchCards();
 
 
 let firstCardIndex = 1;
@@ -484,11 +505,9 @@ setTimeout(() => {
 
 function openPopup(scrachCard) {
     let previousScratchedCode = localStorage.getItem("scratchCardCode");
-    if (previousScratchedCode !== null && localStorage.getItem("scratchCardCode") !== scrachCard.offer_code) {
+    if (previousScratchedCode !== null && previousScratchedCode !== scrachCard.offer_code) {
         alert("You have already scratched another Scratch Card");
-    } else {
-        // let formUrl = JSON.stringify(scrachCard.offer_form);
-
+    } else if (previousScratchedCode !== scrachCard.offer_code) {
         document.getElementById("popupLayer").classList.add("active");
         document.getElementById('js-container0').innerHTML = `
                 <canvas class="canvas" id="js-canvas0"></canvas>

@@ -1,10 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url(/assets/font/Gilroy-Bold.woff);
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
 
 body {
   background-color: #f6f3fa;
@@ -13,9 +20,11 @@ body {
   color: #191b2a;
   position: relative;
 }
+
 body .photoGallerySectionMobile {
   display: none;
 }
+
 body .popupLayer {
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
@@ -29,9 +38,11 @@ body .popupLayer {
   justify-content: center;
   display: none;
 }
+
 body .popupLayer.active {
   display: flex;
 }
+
 body .popupLayer .closeBtn {
   position: absolute;
   right: 50px;
@@ -46,9 +57,11 @@ body .popupLayer .closeBtn {
   cursor: pointer;
   padding: 10px;
 }
+
 body .popupLayer .popupBox {
   z-index: 6;
 }
+
 body .popupLayer .popupBox .scratchCardSingle {
   border-radius: 10px;
   background-color: white;
@@ -64,6 +77,7 @@ body .popupLayer .popupBox .scratchCardSingle {
   -o-user-select: none;
   user-select: none;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .canvas {
   position: absolute;
   top: -10px;
@@ -72,6 +86,7 @@ body .popupLayer .popupBox .scratchCardSingle .canvas {
   height: 110%;
   z-index: 7;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .left {
   display: flex;
   flex-direction: column;
@@ -79,10 +94,12 @@ body .popupLayer .popupBox .scratchCardSingle .left {
   gap: 20px;
   width: 60%;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .left .scrachCardTitle {
   font-size: 24px;
   position: relative;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .left .scrachCardTitle::after {
   content: "";
   background-color: #a17ac9;
@@ -94,9 +111,11 @@ body .popupLayer .popupBox .scratchCardSingle .left .scrachCardTitle::after {
   left: 0;
   border-radius: 30px;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .left .scrachCardContent {
   font-size: 20px;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .left button {
   width: -moz-fit-content;
   width: fit-content;
@@ -110,15 +129,18 @@ body .popupLayer .popupBox .scratchCardSingle .left button {
   cursor: pointer;
   text-decoration: none;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .right {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40%;
 }
+
 body .popupLayer .popupBox .scratchCardSingle .right img {
   height: 200px;
 }
+
 body .popupLayer2 {
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
@@ -132,9 +154,11 @@ body .popupLayer2 {
   justify-content: center;
   display: none;
 }
+
 body .popupLayer2.active {
   display: flex;
 }
+
 body .popupLayer2 .closeBtn {
   position: absolute;
   right: 50px;
@@ -149,15 +173,18 @@ body .popupLayer2 .closeBtn {
   cursor: pointer;
   padding: 10px;
 }
+
 body .popupLayer2 .popupBox {
   z-index: 6;
   height: 80vh;
   width: 50vw;
 }
+
 body header {
   height: 650px;
   position: relative;
 }
+
 body header .nav {
   padding: 50px 50px;
   font-weight: 700;
@@ -166,6 +193,7 @@ body header .nav {
   display: flex;
   align-items: center;
 }
+
 body header .bgTopIcon {
   position: absolute;
   top: 0;
@@ -174,6 +202,7 @@ body header .bgTopIcon {
   height: 280px;
   right: 0;
 }
+
 body header .bgBottomIcon {
   position: absolute;
   bottom: 0;
@@ -182,12 +211,14 @@ body header .bgBottomIcon {
   height: 280px;
   left: 0;
 }
+
 body header .headerContent {
   padding: 20px;
   height: calc(100% - 60px);
   display: flex;
   align-items: center;
 }
+
 body header .headerContent .left {
   width: 60%;
   display: flex;
@@ -195,33 +226,68 @@ body header .headerContent .left {
   flex-direction: column;
   padding-left: 100px;
 }
+
 body header .headerContent .left h1 {
   margin-bottom: 20px;
   font-size: 45px;
 }
+
 body header .headerContent .left h1 span {
   color: #a17ac9;
 }
+
 body header .headerContent .left .description {
   color: gray;
   font-size: 20px;
 }
+
 body header .headerContent .left .description span {
   font-weight: 700;
 }
+
+body header .headerContent .center {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 50px;
+  text-align: center;
+}
+
+body header .headerContent .center h1 {
+  margin-bottom: 20px;
+  font-size: 45px;
+}
+
+body header .headerContent .center h1 span {
+  color: #a17ac9;
+}
+
+body header .headerContent .center .description {
+  color: gray;
+  font-size: 20px;
+}
+
+body header .headerContent .center .description span {
+  font-weight: 700;
+}
+
 body header .headerContent .right {
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
+
 body header .headerContent .right .headerImgContainer img {
   height: 420px;
 }
+
 body .photoGallerySection {
   height: 1200px;
   padding: 50px;
 }
+
 body .photoGallerySection .photoGalleryContent {
   height: 100%;
   width: 100%;
@@ -232,15 +298,19 @@ body .photoGallerySection .photoGalleryContent {
   align-items: center;
   padding: 50px;
 }
+
 body .photoGallerySection .photoGalleryContent .title {
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 5px;
+  font-family: "Gilroy-Bold", sans-serif;
 }
+
 body .photoGallerySection .photoGalleryContent .subtitle {
   font-weight: 500;
   position: relative;
 }
+
 body .photoGallerySection .photoGalleryContent .subtitle::after {
   content: "";
   background-color: #a17ac9;
@@ -252,6 +322,7 @@ body .photoGallerySection .photoGalleryContent .subtitle::after {
   left: 50%;
   border-radius: 30px;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer {
   display: flex;
   flex-wrap: wrap;
@@ -261,11 +332,13 @@ body .photoGallerySection .photoGalleryContent .photoContainer {
   position: relative;
   overflow: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene {
   height: auto;
   width: 300px;
   perspective: 600px;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card {
   width: 100%;
   height: 100%;
@@ -275,9 +348,11 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene .card {
   position: relative;
   overflow: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card.is-flipped {
   transform: rotateY(180deg);
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card__face {
   position: absolute;
   width: 100%;
@@ -285,12 +360,15 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene .card__fac
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene img {
   width: 300px;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene .card__face--back {
   transform: rotateY(180deg);
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card1 {
   position: absolute;
   top: 50%;
@@ -299,6 +377,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card1 {
   width: 20%;
   height: 300px;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card2 {
   position: absolute;
   top: 130px;
@@ -306,6 +385,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card2 {
   width: 20%;
   height: 300px;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card3 {
   position: absolute;
   top: 430px;
@@ -313,6 +393,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card3 {
   width: 20%;
   height: 300px;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card4 {
   position: absolute;
   top: 180px;
@@ -321,6 +402,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card4 {
   height: 300px;
   overflow: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card5 {
   position: absolute;
   top: 380px;
@@ -329,6 +411,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card5 {
   height: 300px;
   overflow: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card6 {
   position: absolute;
   top: 0;
@@ -337,6 +420,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card6 {
   height: 300px;
   overflow: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card7 {
   position: absolute;
   top: 300px;
@@ -345,6 +429,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card7 {
   height: 300px;
   overflow: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card8 {
   position: absolute;
   top: 500px;
@@ -353,6 +438,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card8 {
   height: 300px;
   overflow: hidden;
 }
+
 body .photoGallerySection .photoGalleryContent .photoContainer .scene--card9 {
   position: absolute;
   top: 50%;
@@ -362,6 +448,7 @@ body .photoGallerySection .photoGalleryContent .photoContainer .scene--card9 {
   height: 300px;
   overflow: hidden;
 }
+
 body .scrachCardSection {
   height: -moz-fit-content;
   height: fit-content;
@@ -371,6 +458,7 @@ body .scrachCardSection {
   padding: 50px 100px;
   position: relative;
 }
+
 body .scrachCardSection .bgBottomIcon {
   position: absolute;
   bottom: 50px;
@@ -379,15 +467,20 @@ body .scrachCardSection .bgBottomIcon {
   height: 280px;
   left: 0;
 }
+
 body .scrachCardSection .title {
+  font-family: "Gilroy-Bold", sans-serif;
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 5px;
+  text-align: center;
 }
+
 body .scrachCardSection .subtitle {
   font-weight: 500;
   position: relative;
 }
+
 body .scrachCardSection .subtitle::after {
   content: "";
   background-color: #a17ac9;
@@ -399,6 +492,7 @@ body .scrachCardSection .subtitle::after {
   left: 50%;
   border-radius: 30px;
 }
+
 body .scrachCardSection .scratchCards {
   display: flex;
   flex-wrap: wrap;
@@ -408,21 +502,25 @@ body .scrachCardSection .scratchCards {
   width: 100%;
   margin-bottom: 50px;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle {
   border-radius: 10px;
   background-color: white;
   display: flex;
   gap: 10px;
-  width: 350px;
+  min-width: 270px;
+  flex: 0 0 31%;
   height: 200px;
   padding: 10px;
   overflow: hidden;
+  text-align: center;
   position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
   background: url(assets/scratch.png);
   position: absolute;
@@ -434,16 +532,19 @@ body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
   height: 100%;
   z-index: 3;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle .left {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 20px;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardTitle {
   font-size: 18px;
   position: relative;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardTitle::after {
   content: "";
   background-color: #a17ac9;
@@ -455,9 +556,11 @@ body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardTitle:
   left: 0;
   border-radius: 30px;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardContent {
   font-size: 14px;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle .left button {
   width: -moz-fit-content;
   width: fit-content;
@@ -469,13 +572,61 @@ body .scrachCardSection .scratchCards .scratchCardSingle .left button {
   font-weight: 600;
   cursor: pointer;
 }
+
+body .scrachCardSection .scratchCards .scratchCardSingle .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  display: inline-block;
+  margin: auto;
+  padding: 3px;
+}
+
+body .scrachCardSection .scratchCards .scratchCardSingle .center .scrachCardTitle {
+  font-size: 18px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+body .scrachCardSection .scratchCards .scratchCardSingle .center .scrachCardTitle::after {
+  content: "";
+  background-color: #a17ac9;
+  width: 20%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0, 250%);
+  left: 40%;
+  border-radius: 30px;
+}
+
+body .scrachCardSection .scratchCards .scratchCardSingle .center .scrachCardContent {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+body .scrachCardSection .scratchCards .scratchCardSingle .center button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 2px solid #191b2a;
+  color: #191b2a;
+  background-color: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 body .scrachCardSection .scratchCards .scratchCardSingle .right {
   display: flex;
   align-items: center;
 }
+
 body .scrachCardSection .scratchCards .scratchCardSingle .right img {
   height: 100px;
 }
+
 body footer {
   background-color: #191b2a;
   color: white;
@@ -485,45 +636,54 @@ body footer {
   padding: 50px;
   gap: 20px;
 }
+
 body footer .logo {
   font-size: 40px;
   font-weight: 600;
 }
+
 body footer .address {
   margin-bottom: 10px;
   font-weight: 200;
 }
+
 body footer .socials {
   display: flex;
   gap: 20px;
   align-items: center;
 }
+
 body footer .hrHalf {
   height: 1px;
   background-color: gray;
   width: 250px;
 }
+
 body footer .hrFull {
   height: 1px;
   background-color: gray;
   width: 1000px;
   margin-top: 20px;
 }
+
 body footer .menu ul {
   display: flex;
   list-style: none;
   gap: 50px;
 }
+
 body footer .menu ul li a {
   text-decoration: none;
   color: white;
 }
+
 body footer .copyright {
   display: flex;
   width: 1000px;
   justify-content: space-between;
   font-size: 14px;
 }
+
 body footer .copyright .right a {
   color: white;
   text-decoration: none;
@@ -537,6 +697,7 @@ body footer .copyright .right a {
     color: #191b2a;
     position: relative;
   }
+
   body .popupLayer {
     background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
@@ -550,9 +711,11 @@ body footer .copyright .right a {
     justify-content: center;
     display: none;
   }
+
   body .popupLayer.active {
     display: flex;
   }
+
   body .popupLayer .closeBtn {
     position: absolute;
     right: 20px;
@@ -567,11 +730,13 @@ body footer .copyright .right a {
     cursor: pointer;
     padding: 5px;
   }
+
   body .popupLayer .popupBox {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   body .popupLayer .popupBox .scratchCardSingle {
     border-radius: 10px;
     background-color: white;
@@ -587,6 +752,7 @@ body footer .copyright .right a {
     -o-user-select: none;
     user-select: none;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .canvas {
     position: absolute;
     top: 0;
@@ -595,16 +761,19 @@ body footer .copyright .right a {
     height: 110%;
     z-index: 3;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .left {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     gap: 10px;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .left .scrachCardTitle {
     font-size: 18px;
     position: relative;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .left .scrachCardTitle::after {
     content: "";
     background-color: #a17ac9;
@@ -616,9 +785,11 @@ body footer .copyright .right a {
     left: 0;
     border-radius: 30px;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .left .scrachCardContent {
     font-size: 14px;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .left button {
     width: -moz-fit-content;
     width: fit-content;
@@ -631,13 +802,16 @@ body footer .copyright .right a {
     font-size: 14px;
     cursor: pointer;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .right {
     display: flex;
     align-items: center;
   }
+
   body .popupLayer .popupBox .scratchCardSingle .right img {
     height: 100px;
   }
+
   body .popupLayer2 {
     background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
@@ -651,9 +825,11 @@ body footer .copyright .right a {
     justify-content: center;
     display: none;
   }
+
   body .popupLayer2.active {
     display: flex;
   }
+
   body .popupLayer2 .closeBtn {
     position: absolute;
     right: 20px;
@@ -668,16 +844,19 @@ body footer .copyright .right a {
     cursor: pointer;
     padding: 5px;
   }
+
   body .popupLayer2 .popupBox {
     z-index: 6;
     height: 80vh;
     width: 90vw;
   }
+
   body header {
     height: -moz-fit-content;
     height: fit-content;
     position: relative;
   }
+
   body header .nav {
     padding: 20px 20px;
     font-weight: 700;
@@ -686,6 +865,7 @@ body footer .copyright .right a {
     display: flex;
     align-items: center;
   }
+
   body header .bgTopIcon {
     border: 2px solid red;
     position: absolute;
@@ -696,6 +876,7 @@ body footer .copyright .right a {
     right: 0;
     display: none;
   }
+
   body header .bgBottomIcon {
     position: absolute;
     bottom: 0;
@@ -705,6 +886,7 @@ body footer .copyright .right a {
     left: 0;
     display: none;
   }
+
   body header .headerContent {
     padding: 0;
     height: -moz-fit-content;
@@ -714,6 +896,7 @@ body footer .copyright .right a {
     align-items: center;
     padding: 20px;
   }
+
   body header .headerContent .left {
     width: 100%;
     display: flex;
@@ -721,36 +904,73 @@ body footer .copyright .right a {
     flex-direction: column;
     padding-left: 0;
   }
+
   body header .headerContent .left h1 {
     margin-bottom: 10px;
     font-size: 25px;
   }
+
   body header .headerContent .left h1 span {
     color: #a17ac9;
   }
+
   body header .headerContent .left .description {
     color: gray;
     font-size: 16px;
   }
+
   body header .headerContent .left .description span {
     font-weight: 700;
   }
+
+  body header .headerContent .center {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 100px;
+    text-align: center;
+  }
+
+  body header .headerContent .center h1 {
+    margin: 0 auto 20px auto;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  body header .headerContent .center h1 span {
+    color: #a17ac9;
+  }
+
+  body header .headerContent .center .description {
+    color: gray;
+    font-size: 16px;
+  }
+
+  body header .headerContent .center .description span {
+    font-weight: 700;
+  }
+
   body header .headerContent .right {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   body header .headerContent .right .headerImgContainer {
     width: 100%;
   }
+
   body header .headerContent .right .headerImgContainer img {
     width: 100%;
     height: auto;
   }
+
   body .photoGallerySection {
     display: none;
   }
+
   body .photoGallerySectionMobile {
     display: flex;
     width: 100%;
@@ -760,25 +980,30 @@ body footer .copyright .right a {
     padding: 0;
     /* Hide scrollbar for IE, Edge and Firefox */
   }
+
   body .photoGallerySectionMobile .example::-webkit-scrollbar {
     display: none;
   }
+
   body .photoGallerySectionMobile .example {
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
   }
+
   body .photoGallerySectionMobile .title {
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 5px;
     margin-top: 15px;
   }
+
   body .photoGallerySectionMobile .subtitle {
     font-weight: 500;
     position: relative;
   }
+
   body .photoGallerySectionMobile .subtitle::after {
     content: "";
     background-color: #a17ac9;
@@ -790,6 +1015,7 @@ body footer .copyright .right a {
     left: 50%;
     border-radius: 30px;
   }
+
   body .photoGallerySectionMobile .photoContainer {
     margin-top: 20px;
     width: 100%;
@@ -797,13 +1023,16 @@ body footer .copyright .right a {
     overflow: auto;
     gap: 20px;
   }
+
   body .photoGallerySectionMobile .photoContainer .card {
     height: 200px;
     width: 200px;
   }
+
   body .photoGallerySectionMobile .photoContainer .card img {
     height: 100%;
   }
+
   body .scrachCardSection {
     height: -moz-fit-content;
     height: fit-content;
@@ -813,6 +1042,7 @@ body footer .copyright .right a {
     padding: 10px;
     position: relative;
   }
+
   body .scrachCardSection .bgBottomIcon {
     position: absolute;
     bottom: 50px;
@@ -822,16 +1052,21 @@ body footer .copyright .right a {
     left: 0;
     display: none;
   }
+
   body .scrachCardSection .title {
+    font-family: "Gilroy-Bold", sans-serif;
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 5px;
     margin-top: 15px;
+    text-align: center;
   }
+
   body .scrachCardSection .subtitle {
     font-weight: 500;
     position: relative;
   }
+
   body .scrachCardSection .subtitle::after {
     content: "";
     background-color: #a17ac9;
@@ -843,6 +1078,7 @@ body footer .copyright .right a {
     left: 50%;
     border-radius: 30px;
   }
+
   body .scrachCardSection .scratchCards {
     display: flex;
     flex-wrap: wrap;
@@ -852,21 +1088,24 @@ body footer .copyright .right a {
     width: 100%;
     margin-bottom: 50px;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle {
     border-radius: 10px;
     background-color: white;
     display: flex;
     gap: 10px;
-    width: 90%;
+    flex: 0 0 31%;
     height: 180px;
     padding: 10px;
     overflow: hidden;
+    text-align: center;
     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
     background: url(assets/scratch.png);
     position: absolute;
@@ -877,19 +1116,23 @@ body footer .copyright .right a {
     border-radius: 10px;
     cursor: pointer;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
     z-index: 3;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .left {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     gap: 20px;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardTitle {
     font-size: 18px;
     position: relative;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardTitle::after {
     content: "";
     background-color: #a17ac9;
@@ -901,9 +1144,11 @@ body footer .copyright .right a {
     left: 0;
     border-radius: 30px;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .left .scrachCardContent {
     font-size: 14px;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .left button {
     width: -moz-fit-content;
     width: fit-content;
@@ -915,13 +1160,58 @@ body footer .copyright .right a {
     font-weight: 600;
     cursor: pointer;
   }
+
+  body .scrachCardSection .scratchCards .scratchCardSingle .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 20px;
+    display: inline-block;
+  }
+
+  body .scrachCardSection .scratchCards .scratchCardSingle .center .scrachCardTitle {
+    font-size: 18px;
+    position: relative;
+  }
+
+  body .scrachCardSection .scratchCards .scratchCardSingle .center .scrachCardTitle::after {
+    content: "";
+    background-color: #a17ac9;
+    width: 20%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    transform: translate(0, 250%);
+    left: 40%;
+    border-radius: 30px;
+  }
+
+  body .scrachCardSection .scratchCards .scratchCardSingle .center .scrachCardContent {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  body .scrachCardSection .scratchCards .scratchCardSingle .center button {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 2px solid #191b2a;
+    color: #191b2a;
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .right {
     display: flex;
     align-items: center;
   }
+
   body .scrachCardSection .scratchCards .scratchCardSingle .right img {
     height: 100px;
   }
+
   body footer {
     background-color: #191b2a;
     color: white;
@@ -931,30 +1221,36 @@ body footer .copyright .right a {
     padding: 20px 10px;
     gap: 20px;
   }
+
   body footer .logo {
     font-size: 40px;
     font-weight: 600;
   }
+
   body footer .address {
     margin-bottom: 10px;
     font-weight: 200;
   }
+
   body footer .socials {
     display: flex;
     gap: 20px;
     align-items: center;
   }
+
   body footer .hrHalf {
     height: 1px;
     background-color: gray;
     width: 50%;
   }
+
   body footer .hrFull {
     height: 1px;
     background-color: gray;
     width: 100%;
     margin-top: 20px;
   }
+
   body footer .menu ul {
     display: flex;
     flex-direction: column;
@@ -962,10 +1258,12 @@ body footer .copyright .right a {
     list-style: none;
     gap: 10px;
   }
+
   body footer .menu ul li a {
     text-decoration: none;
     color: white;
   }
+
   body footer .copyright {
     display: flex;
     flex-direction: column;
@@ -975,8 +1273,11 @@ body footer .copyright .right a {
     font-size: 14px;
     margin-top: 0;
   }
+
   body footer .copyright .right a {
     color: white;
     text-decoration: none;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

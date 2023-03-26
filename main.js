@@ -118,7 +118,7 @@ function createScrachable(id, scratchCardCode) {
 const creatorApi = 'https://api.campaign.whisttler.com/api/creators/?format=json';
 
 let creatorsArray;
-
+let shownCreator = 0;
 let firstCardCreators, secondCardCretors, thirdCardCretors, fourthCardCretors, fifthCardCretors, sixthCardCretors, seventhCardCretors, eightthCardCretors, ninethCardCretors;
 
 async function getCreators(url) {
@@ -136,6 +136,7 @@ async function getCreators(url) {
         card.appendChild(img);
         document.getElementById("photoContainerMobile").appendChild(card);
     }
+    
 
     firstCardCreators = creatorsArray?.splice(0, 5);
     let card1 = document.querySelector('#card1');
@@ -242,9 +243,11 @@ async function getScratchCards() {
         singleScratchCard.classList.add('scratchCardSingle');
         singleScratchCard.setAttribute('onclick', `openPopup(${JSON.stringify(scratchCards[i])})`)
         let previousScratchedCode = localStorage.getItem("scratchCardCode");
-        if (previousScratchedCode !== null && previousScratchedCode === scratchCards[i].offer_code) {
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        if (!regexp.test(details)) {
             singleScratchCard.innerHTML = `
-                <div class="left">
+                <div class="center">
                     <h1 class="scrachCardTitle">
                         ${scratchCards[i].offer_code}
                     </h1>
@@ -255,14 +258,26 @@ async function getScratchCards() {
                         Claim
                     </button>
                 </div>
-                <div class="right">
-                    <img src="assets/scrachCard.png" alt="">
+            `;
+        }
+        else if (previousScratchedCode !== null && previousScratchedCode === scratchCards[i].offer_code) {
+            singleScratchCard.innerHTML = `
+                <div class="center">
+                    <h1 class="scrachCardTitle">
+                        ${scratchCards[i].offer_code}
+                    </h1>
+                    <p class="scrachCardContent">
+                        ${scratchCards[i].offer_description}    
+                    </p>
+                    <button onclick="openFormPopup('${scratchCards[i].offer_form}')">
+                        Claim
+                    </button>
                 </div>
             `;
         } else {
             singleScratchCard.innerHTML = `
             <canvas class="canvas" id=""></canvas>
-            <div class="left">
+            <div class="center">
                 <h1 class="scrachCardTitle">
                     ${scratchCards[i].offer_code}
                 </h1>
@@ -511,7 +526,7 @@ function openPopup(scrachCard) {
         document.getElementById("popupLayer").classList.add("active");
         document.getElementById('js-container0').innerHTML = `
                 <canvas class="canvas" id="js-canvas0"></canvas>
-                <div class="left">
+                <div class="center">
                     <h1 class="scrachCardTitle">
                         ${scrachCard.offer_code}
                     </h1>

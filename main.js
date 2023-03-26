@@ -237,7 +237,7 @@ async function getScratchCards() {
     let data = await res.json();
 
     scratchCards = data;
-
+    document.getElementById('scratchCards').textContent = "";
     for (let i = 0; i < scratchCards.length; i++) {
         let singleScratchCard = document.createElement('div');
         singleScratchCard.classList.add('scratchCardSingle');
@@ -292,7 +292,6 @@ async function getScratchCards() {
                 <img src="assets/scrachCard.png" alt="">
             </div>`
         }
-
         document.getElementById('scratchCards').appendChild(singleScratchCard);
     }
 

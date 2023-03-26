@@ -220,7 +220,6 @@ async function getCreators(url) {
 }
 
 let scratchCards;
-
 async function getScratchCards(url) {
     const res = await fetch(url);
     let data = await res.json();
@@ -478,6 +477,8 @@ function openPopup(scrachCard) {
     if (previousScratchedCode !== null && localStorage.getItem("scratchCardCode") !== scrachCard.offer_code) {
         alert("You have already scratched another Scratch Card");
     } else {
+        // let formUrl = JSON.stringify(scrachCard.offer_form);
+
         document.getElementById("popupLayer").classList.add("active");
         document.getElementById('js-container0').innerHTML = `
                 <canvas class="canvas" id="js-canvas0"></canvas>
@@ -488,23 +489,35 @@ function openPopup(scrachCard) {
                     <p class="scrachCardContent">
                         ${scrachCard.offer_description}    
                     </p>
-                    <a href="${scrachCard.offer_form}" target="_blank">
+                    <button onclick="openFormPopup('${scrachCard.offer_form}')">
                         Claim
-                    </a>
+                    </button>
                 </div>
                 <div class="right">
                     <img src="assets/scrachCard.png" alt="">
                 </div>
             `;
-
         setTimeout(() => {
             createScrachable(0, scrachCard.offer_code)
         }, 0.01);
     }
 }
 
+function openFormPopup(formUrl) {
+    // console.log(formUrl)
+    document.getElementById('js-container0').innerHTML = "";
+    document.getElementById("popupLayer").classList.remove("active");
+    document.getElementById('popupLayer2').classList.add("active");
+    document.getElementById("formFrame").setAttribute('src', formUrl);
+}
+
+function closePopup2() {
+    document.getElementById("popupLayer2").classList.remove("active");
+}
 
 function closePopup() {
     document.getElementById('js-container0').innerHTML = "";
     document.getElementById("popupLayer").classList.remove("active");
 }
+
+

@@ -116,7 +116,7 @@ body {
             // margin-right: 10px;
           }
 
-          a {
+          button {
             width: fit-content;
             padding: 15px 30px;
             border-radius: 5px;
@@ -141,6 +141,47 @@ body {
           }
         }
       }
+    }
+  }
+
+  .popupLayer2 {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+
+    .closeBtn {
+      // border: 2px solid red;
+      position: absolute;
+      right: 50px;
+      background-color: white;
+      border-radius: 50%;
+      top: 50px;
+      height: 60px;
+      width: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .popupBox {
+      border: 2px solid blue;
+      z-index: 6;
+      height: 80vh;
+      width: 50vw;
     }
   }
 
@@ -755,6 +796,48 @@ body {
             }
           }
         }
+      }
+    }
+
+    .popupLayer2 {
+      background-color: rgba(0, 0, 0, 0.7);
+      height: 100vh;
+      width: 100vw;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+
+      .closeBtn {
+        // border: 2px solid red;
+        position: absolute;
+        right: 20px;
+        background-color: white;
+        border-radius: 50%;
+        top: 20px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      .popupBox {
+        border: 2px solid blue;
+        z-index: 6;
+        height: 80vh;
+        width: 90vw;
       }
     }
 

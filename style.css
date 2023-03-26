@@ -552,8 +552,8 @@ body footer .copyright .right a {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     z-index: 3;
   }
   body .popupLayer .popupBox .scratchCardSingle .left {
@@ -794,19 +794,16 @@ body footer .copyright .right a {
     user-select: none;
   }
   body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
-    background: url(assets/scratch.jpg);
+    background: url(assets/scratch.png);
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     border-radius: 10px;
     cursor: pointer;
   }
   body .scrachCardSection .scratchCards .scratchCardSingle .canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     z-index: 3;
   }
   body .scrachCardSection .scratchCards .scratchCardSingle .left {

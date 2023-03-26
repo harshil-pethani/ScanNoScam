@@ -202,7 +202,7 @@ for (let i = 0; i < scratchCards.length; i++) {
 }
 
 let firstCardIndex = 1;
-// let firstCardIndex2 = 2;
+let firstCardIndex2 = 2;
 
 setInterval(() => {
     let card1 = document.querySelector('#card1');
@@ -212,15 +212,15 @@ setInterval(() => {
         card1.lastElementChild.setAttribute('href', firstCardCreators[firstCardIndex].instagram_link);
         card1.lastElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex].creator_img);
 
-        // card1.firstElementChild.setAttribute('href', firstCardCreators[firstCardIndex2].instagram_link);
-        // card1.firstElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex2].creator_img);
+        card1.firstElementChild.setAttribute('href', firstCardCreators[firstCardIndex2].instagram_link);
+        card1.firstElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex2].creator_img);
 
     } else {
         card1.firstElementChild.setAttribute('href', firstCardCreators[firstCardIndex].instagram_link);
         card1.firstElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex].creator_img);
 
-        // card1.lastElementChild.setAttribute('href', firstCardCreators[firstCardIndex2].instagram_link);
-        // card1.lastElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex2].creator_img);
+        card1.lastElementChild.setAttribute('href', firstCardCreators[firstCardIndex2].instagram_link);
+        card1.lastElementChild.firstElementChild.setAttribute('src', firstCardCreators[firstCardIndex2].creator_img);
     }
 
 
@@ -229,11 +229,11 @@ setInterval(() => {
     } else {
         firstCardIndex = 0;
     }
-    // if (firstCardIndex2 < 4) {
-    //     firstCardIndex2++;
-    // } else {
-    //     firstCardIndex2 = 0;
-    // }
+    if (firstCardIndex2 < 4) {
+        firstCardIndex2++;
+    } else {
+        firstCardIndex2 = 0;
+    }
 }, 5000);
 
 

@@ -126,6 +126,16 @@ async function getCreators(url) {
     let data = await res.json();
 
     creatorsArray = data;
+    for (let i = 0; i < creatorsArray.length; i++) {
+        let card = document.createElement('a');
+        card.setAttribute('class', 'card');
+        card.setAttribute('href', creatorsArray[i].instagram_link)
+        card.setAttribute('target', '_blank')
+        let img = document.createElement('img');
+        img.setAttribute('src', creatorsArray[i].creator_img);
+        card.appendChild(img);
+        document.getElementById("photoContainerMobile").appendChild(card);
+    }
 
     firstCardCreators = creatorsArray?.splice(0, 5);
     let card1 = document.querySelector('#card1');

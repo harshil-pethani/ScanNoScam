@@ -484,7 +484,7 @@ setTimeout(() => {
 
 function openPopup(scrachCard) {
     let previousScratchedCode = localStorage.getItem("scratchCardCode");
-    if (previousScratchedCode !== null) {
+    if (previousScratchedCode !== null && localStorage.getItem("scratchCardCode") !== scrachCard.offer_code) {
         alert("You have already scratched another Scratch Card");
     } else {
         // let formUrl = JSON.stringify(scrachCard.offer_form);

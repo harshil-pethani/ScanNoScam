@@ -20,7 +20,7 @@ body .popupLayer {
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   width: 100vw;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 5;
@@ -46,6 +46,9 @@ body .popupLayer .closeBtn {
   cursor: pointer;
   padding: 10px;
 }
+body .popupLayer .popupBox {
+  z-index: 6;
+}
 body .popupLayer .popupBox .scratchCardSingle {
   border-radius: 10px;
   background-color: white;
@@ -67,7 +70,7 @@ body .popupLayer .popupBox .scratchCardSingle .canvas {
   left: -10px;
   width: 110%;
   height: 110%;
-  z-index: 6;
+  z-index: 7;
 }
 body .popupLayer .popupBox .scratchCardSingle .left {
   display: flex;
@@ -94,7 +97,7 @@ body .popupLayer .popupBox .scratchCardSingle .left .scrachCardTitle::after {
 body .popupLayer .popupBox .scratchCardSingle .left .scrachCardContent {
   font-size: 20px;
 }
-body .popupLayer .popupBox .scratchCardSingle .left button {
+body .popupLayer .popupBox .scratchCardSingle .left a {
   width: -moz-fit-content;
   width: fit-content;
   padding: 15px 30px;
@@ -105,6 +108,7 @@ body .popupLayer .popupBox .scratchCardSingle .left button {
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;
+  text-decoration: none;
 }
 body .popupLayer .popupBox .scratchCardSingle .right {
   display: flex;

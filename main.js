@@ -1,4 +1,4 @@
-function createScrachable(id) {
+function createScrachable(id, scratchCardCode) {
 
     // 'use strict';
     let isDrawing, lastPoint;
@@ -77,6 +77,8 @@ function createScrachable(id) {
         // console.log(filledInPixels + '%');
         if (filledInPixels > 50) {
             canvas.parentNode.removeChild(canvas);
+            // console.log("Scratched")
+            localStorage.setItem("scratchCardCode", scratchCardCode);
         }
     }
 
@@ -113,6 +115,7 @@ function createScrachable(id) {
 };
 
 const creatorApi = 'https://api.campaign.whisttler.com/api/creators/?format=json';
+const scratchCardApi = 'https://api.campaign.whisttler.com/api/offers/?format=json';
 
 let creatorsArray;
 
@@ -216,64 +219,43 @@ async function getCreators(url) {
     `;
 }
 
-getCreators(creatorApi);
+let scratchCards;
 
-let scratchCards = [
-    {
-        'id': '1',
-        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
-        'title': 'Gift Card_1'
-    },
-    {
-        'id': '2',
-        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
-        'title': 'Gift Card_2'
-    },
-    {
-        'id': '3',
-        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
-        'title': 'Gift Card_3'
-    },
-    {
-        'id': '4',
-        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
-        'title': 'Gift Card_4'
-    },
-    {
-        'id': '5',
-        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
-        'title': 'Gift Card_5'
-    },
-    {
-        'id': '6',
-        'content': 'Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing',
-        'title': 'Gift Card_6'
-    },
-];
+async function getScratchCards(url) {
+    const res = await fetch(url);
+    let data = await res.json();
 
-for (let i = 0; i < scratchCards.length; i++) {
-    let singleScratchCard = document.createElement('div');
-    singleScratchCard.classList.add('scratchCardSingle');
-    singleScratchCard.setAttribute('onclick', `openPopup(${JSON.stringify(scratchCards[i])})`)
-    singleScratchCard.innerHTML = `
+    scratchCards = data;
+
+    for (let i = 0; i < scratchCards.length; i++) {
+        let singleScratchCard = document.createElement('div');
+        singleScratchCard.classList.add('scratchCardSingle');
+        singleScratchCard.setAttribute('onclick', `openPopup(${JSON.stringify(scratchCards[i])})`)
+        singleScratchCard.innerHTML = `
         <canvas class="canvas" id=""></canvas>
         <div class="left">
             <h1 class="scrachCardTitle">
-                ${scratchCards[i].title}
+                ${scratchCards[i].offer_code}
             </h1>
             <p class="scrachCardContent">
-                ${scratchCards[i].content}
+                ${scratchCards[i].offer_description}
             </p>
-            <button>
+            <a href="${scratchCards[i].offer_form}" target="_blank">
                 Claim
-            </button>
+            </a>
         </div>
         <div class="right">
             <img src="assets/scrachCard.png" alt="">
         </div>
     `
-    document.getElementById('scratchCards').appendChild(singleScratchCard);
+        document.getElementById('scratchCards').appendChild(singleScratchCard);
+    }
+
 }
+
+getCreators(creatorApi);
+getScratchCards(scratchCardApi);
+
 
 let firstCardIndex = 1;
 setInterval(() => {
@@ -492,28 +474,33 @@ setTimeout(() => {
 
 
 function openPopup(scrachCard) {
-    document.getElementById("popupLayer").classList.add("active");
-    document.getElementById('js-container0').innerHTML = `
-        <canvas class="canvas" id="js-canvas0"></canvas>
-        <div class="left">
-            <h1 class="scrachCardTitle">
-                ${scrachCard.title}
-            </h1>
-            <p class="scrachCardContent">
-                ${scrachCard.content}    
-            </p>
-            <button>
-            Claim
-            </button>
-        </div>
-        <div class="right">
-            <img src="assets/scrachCard.png" alt="">
-        </div>
-    `;
+    let previousScratchedCode = localStorage.getItem("scratchCardCode");
+    if (previousScratchedCode !== null && localStorage.getItem("scratchCardCode") !== scrachCard.offer_code) {
+        alert("You have already scratched another Scratch Card");
+    } else {
+        document.getElementById("popupLayer").classList.add("active");
+        document.getElementById('js-container0').innerHTML = `
+                <canvas class="canvas" id="js-canvas0"></canvas>
+                <div class="left">
+                    <h1 class="scrachCardTitle">
+                        ${scrachCard.offer_code}
+                    </h1>
+                    <p class="scrachCardContent">
+                        ${scrachCard.offer_description}    
+                    </p>
+                    <a href="${scrachCard.offer_form}" target="_blank">
+                        Claim
+                    </a>
+                </div>
+                <div class="right">
+                    <img src="assets/scrachCard.png" alt="">
+                </div>
+            `;
 
-    setTimeout(() => {
-        createScrachable(0)
-    }, 0.01);
+        setTimeout(() => {
+            createScrachable(0, scrachCard.offer_code)
+        }, 0.01);
+    }
 }
 
 

@@ -140,8 +140,7 @@ async function getCreators(url) {
 }
 
 let i = 1;
-if(screen.width > "768")
-{
+if (screen.width > "768") {
     setInterval(() => {
         let innerPhotoContainer = document.getElementById("innerPhotoContainer");
         if (i === creatorsArray.length - 2) {
@@ -151,7 +150,7 @@ if(screen.width > "768")
             i++;
         }
     }, 5000);
-}else{
+} else {
     setInterval(() => {
         let innerPhotoContainer = document.getElementById("innerPhotoContainer");
         if (i === creatorsArray.length - 2) {

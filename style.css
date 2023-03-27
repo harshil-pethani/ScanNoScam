@@ -989,6 +989,9 @@ body footer .copyright .right a {
     width: 100%;
     margin-top: 20px;
   }
+  body footer .menu p {
+    text-align: center;
+  }
   body footer .menu ul {
     display: flex;
     flex-direction: column;

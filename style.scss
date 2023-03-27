@@ -1254,6 +1254,10 @@ body {
       }
 
       .menu {
+        p {
+          text-align: center;
+        }
+
         ul {
           display: flex;
           flex-direction: column;

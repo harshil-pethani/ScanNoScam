@@ -136,7 +136,7 @@ async function getCreators(url) {
         card.appendChild(img);
         document.getElementById("photoContainerMobile").appendChild(card);
     }
-    
+
 
     firstCardCreators = creatorsArray?.splice(0, 5);
     let card1 = document.querySelector('#card1');
@@ -230,6 +230,12 @@ async function getCreators(url) {
     `;
 }
 
+function isDesktop() {
+    let details = navigator.userAgent;
+    let regexp = /android|iphone|kindle|ipad/i;
+    return !regexp.test(details);
+}
+
 let scratchCards;
 async function getScratchCards() {
     const scratchCardApi = 'https://api.campaign.whisttler.com/api/offers/?format=json';
@@ -243,24 +249,7 @@ async function getScratchCards() {
         singleScratchCard.classList.add('scratchCardSingle');
         singleScratchCard.setAttribute('onclick', `openPopup(${JSON.stringify(scratchCards[i])})`)
         let previousScratchedCode = localStorage.getItem("scratchCardCode");
-        let details = navigator.userAgent;
-        let regexp = /android|iphone|kindle|ipad/i;
-        if (!regexp.test(details)) {
-            singleScratchCard.innerHTML = `
-                <div class="center">
-                    <h1 class="scrachCardTitle">
-                        ${scratchCards[i].offer_code}
-                    </h1>
-                    <p class="scrachCardContent">
-                        ${scratchCards[i].offer_description}    
-                    </p>
-                    <button onclick="openFormPopup('${scratchCards[i].offer_form}')">
-                        Claim
-                    </button>
-                </div>
-            `;
-        }
-        else if (previousScratchedCode !== null && previousScratchedCode === scratchCards[i].offer_code) {
+        if (previousScratchedCode !== null && previousScratchedCode === scratchCards[i].offer_code) {
             singleScratchCard.innerHTML = `
                 <div class="center">
                     <h1 class="scrachCardTitle">
@@ -517,11 +506,41 @@ setTimeout(() => {
 }, 4000);
 
 
+function createPopup(scrachCard) {
+    document.getElementById("popupLayer").classList.add("active");
+    document.getElementById('js-container0').innerHTML = `
+        <div class="center">
+            <h1 class="scrachCardTitle">
+                ${scrachCard.offer_code}
+            </h1>
+            <p class="scrachCardContent">
+                ${scrachCard.offer_description}    
+            </p>
+            <button onclick="openFormPopup('${scrachCard.offer_form}')">
+                Claim
+            </button>
+        </div>
+    `;
+    localStorage.setItem("scratchCardCode", scrachCard.offer_code);
+    getScratchCards()
+}
+
 function openPopup(scrachCard) {
     let previousScratchedCode = localStorage.getItem("scratchCardCode");
     if (previousScratchedCode !== null && previousScratchedCode !== scrachCard.offer_code) {
         alert("You have already scratched another Scratch Card");
-    } else if (previousScratchedCode !== scrachCard.offer_code) {
+    } else if (isDesktop()) {
+        if (previousScratchedCode !== null) {
+            if (previousScratchedCode !== scrachCard.offer_code) {
+                createPopup(scrachCard);
+                getScratchCards()
+            }
+        } else {
+            createPopup(scrachCard);
+            getScratchCards()
+        }
+    }
+    else if (previousScratchedCode !== scrachCard.offer_code) {
         document.getElementById("popupLayer").classList.add("active");
         document.getElementById('js-container0').innerHTML = `
                 <canvas class="canvas" id="js-canvas0"></canvas>

@@ -127,8 +127,6 @@ async function getCreators(url) {
 
     creatorsArray = data;
 
-    let photoContainerMobile = document.getElementById('photoContainerMobile');
-
     for (let i = 0; i < creatorsArray.length; i++) {
         let card = document.createElement('a');
         card.setAttribute('class', 'creatorCard');
@@ -137,9 +135,33 @@ async function getCreators(url) {
         let img = document.createElement('img');
         img.setAttribute('src', creatorsArray[i].creator_img);
         card.appendChild(img);
-        document.getElementById("photoContainerMobile").appendChild(card);
-
+        document.getElementById("innerPhotoContainer").appendChild(card);
     }
+}
+
+let i = 1;
+if(screen.width > "768")
+{
+    setInterval(() => {
+        let innerPhotoContainer = document.getElementById("innerPhotoContainer");
+        if (i === creatorsArray.length - 2) {
+            i = 1;
+        } else {
+            innerPhotoContainer.style.transform = `translateX(${-400 * i}px )`;
+            i++;
+        }
+    }, 5000);
+}else{
+    setInterval(() => {
+        let innerPhotoContainer = document.getElementById("innerPhotoContainer");
+        if (i === creatorsArray.length - 2) {
+            i = 1;
+        } else {
+            innerPhotoContainer.style.transform = `translateX(${-200 * i}px )`;
+            i++;
+        }
+    }, 5000);
+
 }
 
 function isDesktop() {

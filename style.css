@@ -36,24 +36,32 @@ body .photoGallerySectionMobile .subtitle {
 body .photoGallerySectionMobile .photoContainer {
   margin-top: 20px;
   width: 100%;
+  overflow: hidden;
+  height: 400px;
+}
+body .photoGallerySectionMobile .photoContainer #innerPhotoContainer {
   display: flex;
   overflow: auto;
   gap: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
   overflow-y: hidden;
+  transition: all ease 1000ms;
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
 }
-body .photoGallerySectionMobile .photoContainer::-webkit-scrollbar {
+body .photoGallerySectionMobile .photoContainer #innerPhotoContainer::-webkit-scrollbar {
   display: none;
 }
-body .photoGallerySectionMobile .photoContainer .creatorCard {
+body .photoGallerySectionMobile .photoContainer #innerPhotoContainer .creatorCard {
   height: 400px;
   width: 400px;
 }
-body .photoGallerySectionMobile .photoContainer .creatorCard img {
+body .photoGallerySectionMobile .photoContainer #innerPhotoContainer .creatorCard img {
   height: 100%;
 }
 body .popupLayer {

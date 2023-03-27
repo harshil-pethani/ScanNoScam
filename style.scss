@@ -21,7 +21,70 @@ body {
   position: relative;
 
   .photoGallerySectionMobile {
-    display: none;
+    // border: 2px solid red;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 50px;
+    margin-top: 20px;
+
+    .title {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-weight: 500;
+      position: relative;
+
+      // &::after {
+      //   content: "";
+      //   background-color: $purple;
+      //   width: 50%;
+      //   height: 5px;
+      //   position: absolute;
+      //   bottom: 0;
+      //   transform: translate(-50%, 250%);
+      //   left: 50%;
+      //   border-radius: 30px;
+      // }
+    }
+
+    .photoContainer {
+      // border: 2px solid red;
+      margin-top: 20px;
+      width: 100%;
+      display: flex;
+      overflow: auto;
+      gap: 20px;
+      overflow-y: hidden;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+
+      .creatorCard {
+        height: 400px;
+        width: 400px;
+
+        img {
+          height: 100%;
+
+        }
+      }
+    }
   }
 
   .popupLayer {
@@ -193,10 +256,11 @@ body {
       padding: 50px 50px;
       // border: 2px solid red;
       font-weight: 700;
-      font-size: 36px;
+      font-size: 60px;
       height: 60px;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     position: relative;
@@ -228,12 +292,13 @@ body {
       display: flex;
       align-items: center;
 
-      .left {
-        width: 60%;
+      .center {
+        width: 100%;
         display: flex;
         justify-content: flex-end;
         flex-direction: column;
         padding-left: 100px;
+        padding-right: 100px;
         // border: 2px solid red;
 
         h1 {
@@ -492,23 +557,24 @@ body {
       font-size: 40px;
       font-weight: 600;
       margin-bottom: 5px;
+      text-align: center;
     }
 
     .subtitle {
       font-weight: 500;
       position: relative;
 
-      &::after {
-        content: "";
-        background-color: $purple;
-        width: 50%;
-        height: 5px;
-        position: absolute;
-        bottom: 0;
-        transform: translate(-50%, 250%);
-        left: 50%;
-        border-radius: 30px;
-      }
+      // &::after {
+      //   content: "";
+      //   background-color: $purple;
+      //   width: 50%;
+      //   height: 5px;
+      //   position: absolute;
+      //   bottom: 0;
+      //   transform: translate(-50%, 250%);
+      //   left: 50%;
+      //   border-radius: 30px;
+      // }
     }
 
     .scratchCards {
@@ -540,6 +606,8 @@ body {
 
         .canvas {
           background: url(assets/scratch.png);
+          background-repeat: no-repeat;
+          background-size: cover;
           position: absolute;
           top: 0;
           left: 0;
@@ -850,15 +918,17 @@ body {
         // border: 2px solid red;
         font-weight: 700;
         font-size: 26px;
-        height: 30px;
+        height: fit-content;
         display: flex;
         align-items: center;
+        justify-content: center;
+        text-align: center;
       }
 
       position: relative;
 
       .bgTopIcon {
-        border: 2px solid red;
+        // border: 2px solid red;
         position: absolute;
         top: 0;
         transform: translateY(-40%);
@@ -889,12 +959,13 @@ body {
         align-items: center;
         padding: 20px;
 
-        .left {
+        .center {
           width: 100%;
           display: flex;
           justify-content: flex-start;
           flex-direction: column;
           padding-left: 0;
+          padding-right: 0;
           // border: 2px solid red;
 
           h1 {
@@ -936,9 +1007,6 @@ body {
       }
     }
 
-    .photoGallerySection {
-      display: none;
-    }
 
     .photoGallerySectionMobile {
       // border: 2px solid red;
@@ -994,7 +1062,7 @@ body {
         overflow: auto;
         gap: 20px;
 
-        .card {
+        .creatorCard {
           height: 200px;
           width: 200px;
 
